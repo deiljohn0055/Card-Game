@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card-Game</title>
+   
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .cont{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(pic/bg.jpg);
+            background-size: cover;
+        }
+        .cont1{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 2;
+        }
+        .cardbox{
+            height: 70%;
+            width: 70%;
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            /* background-color: antiquewhite; */
+        }
+        .card-roll{
+            height: 500px;
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: aquamarine; */
+        }
+        .card{
+            height: 400px;
+            width: 250px;
+            background-color: white;
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid black;
+            background-image: url(pic/cardbg.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        
+        }
+        #card5{
+            height: 400px;
+            width: 250px;
+            background-color: white;
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid black;
+        }
+        .back{
+            height: 400px;
+            width: 250px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.502);
+            position: absolute;
+            overflow: hidden;
+            z-index: 1;
+        }
+        #num-bot,  #num-top, .sh{
+            display: none;
+        }
+        #num-top , #num-top-5{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 50px;
+            color: red;
+        }
+        #num-bot, #num-bot-5{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 50px;
+            color: red;
+            transform: rotate(180deg);
+        }
+        .dahon{
+            color: red;
+            font-size: 100px;
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+        .mess{
+            height: 70%;
+            width: 70%;
+            background-color: rgba(255, 255, 255, 0.503);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            gap: 200px;
+        }
+        .mess h1{
+            font-size: 100px;
+            color: rgb(0, 0, 0);
+        }
+        .mess div{
+            height: 100px;
+            width: 200px;
+            font-size: 30px;
+            background-color: aqua;
+            border: 2px solid black;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mess div:hover{
+            border-color: aliceblue;
+            color: aliceblue;
+            background-color: rgb(40, 34, 34);
+
+        }
+        #win{
+            display: none;
+        }
+        #loss{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="cont1">
+            <div class="mess" id="Start">
+                <h1>CARD GAME!</h1>
+                <div id="startbtn">Start</div>
+            </div>
+            <div class="mess" id="win">
+                <h1>You Win!</h1>
+                <div class="again">Try Again</div>
+            </div>
+            <div class="mess" id="loss">
+                <h1>You Loss!</h1>
+                <div class="again">Try Again</div>
+            </div>
+        </div>
+        <div class="cardbox">
+            <div class="card" id="card1">
+                <div class="num-top" id="num-top">
+                          1
+                </div>
+                <div class="dahon">
+                    <img class="sh">
+                     
+                </div>
+                <div class="num-bot" id="num-bot">
+                          1
+                </div>
+                
+             </div>
+     
+             <!-- 2nd -->
+     
+             <div class="card" id="card1">
+                <!-- <div class="back"></div> -->
+                 <div class="num-top"  id="num-top">
+                           1
+                 </div>
+                 <div class="dahon">
+                     <img class="sh">
+                 </div>
+                 <div class="num-bot"  id="num-bot">
+                           1
+                 </div>
+                 
+              </div>
+
+              <!-- 3rd -->
+              <div class="card" id="card1">
+                <!-- <div class="back"></div> -->
+                <div class="num-top"  id="num-top">
+                          1
+                </div>
+                <div class="dahon">
+                    <img class="sh">
+                </div>
+                <div class="num-bot"  id="num-bot">
+                          1
+                </div>
+                
+             </div>
+
+             <!-- 4th -->
+             <div class="card" id="card1">
+                <!-- <div class="back"></div> -->
+                <div class="num-top"  id="num-top">
+                          1
+                </div>
+                <div class="dahon">
+                    <img class="sh">
+                </div>
+                <div class="num-bot"  id="num-bot">
+                          1
+                </div>
+                
+             </div>
+        </div>
+        <div class="card-roll">
+            <!-- 5th -->
+            <div  id="card5">
+                <div class="num-top" id="num-top-5"></div>
+                <div class="dahon">
+                    <img  id="shape-5">
+                </div>
+                <div class="num-bot" id="num-bot-5"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const cards = document.querySelectorAll('.card')
+        const dahon = document.querySelectorAll('.sh')
+        const tops = document.querySelectorAll('.num-top')
+        const bots = document.querySelectorAll('.num-bot')
+        const startbtn = document.querySelector('#startbtn')
+        const start = document.querySelector('#Start')
+        const win = document.querySelector('#win')
+        const loss = document.querySelector('#loss')
+        const again = document.querySelectorAll('.again')
+        const cont = document.querySelector('.cont1')
+
+
+        const shapes = ['pic/club.png', 'pic/diamond.png', 'pic/Heart.png', 'pic/spade.png']
+        const pickernum = [];
+        const pickershape = []; 
+        
+        startbtn.addEventListener('click', function(){
+            cont.style.display = 'none';
+        })
+
+        for(let i = 0; i<4 ; i++){
+        const s4 = Math.floor(Math.random() * 4 )
+        const random = Math.floor(Math.random() * 13 )+1
+           
+            tops[i].textContent = random;
+            bots[i].textContent = random;
+            dahon[i].src = shapes[s4];
+
+            pickernum[i] = random;
+            pickershape[i] = shapes[s4];
+
+            if(shapes[s4] == 'pic/club.png' || shapes[s4] == 'pic/spade.png'){
+                tops[i].style.color = 'black';
+                bots[i].style.color = 'black';
+            }     
+        } 
+
+        const random = Math.floor(Math.random() * 4);
+        const num5top = document.getElementById('num-top-5');
+        const num5bot = document.getElementById('num-bot-5');
+        if(pickershape[random] == 'pic/club.png' || pickershape[random] == 'pic/spade.png'){
+            num5top.style.color = 'black';
+            num5bot.style.color = 'black';
+          } 
+
+          num5top.textContent = pickernum[random];
+          num5bot.textContent = pickernum[random];
+          const shape5 = document.getElementById('shape-5').src = pickershape[random];
+        
+
+        cards.forEach(card => {
+            card.addEventListener('click', function(){
+                const tops = card.querySelectorAll('.num-top')
+                const dahon = card.querySelectorAll('.sh')
+                const bot = card.querySelectorAll('.num-bot')
+                cont.style.display = 'flex';
+                card.style.backgroundImage = 'none';
+
+                tops.forEach(t => {                               
+                                 
+                    if(t.textContent == num5top.textContent && dahon.src == shape5.src){
+                                
+                        tops.forEach(tp => {
+                            tp.style.display = 'block';                                
+                        });
+
+                        dahon.forEach(dh => {
+                            dh.style.display = 'block';
+                        });
+
+                        bot.forEach(bt => {
+                            bt.style.display = 'block';                            
+                        });  
+
+                        setTimeout(() => {
+                            win.style.display = 'flex';
+                        }, 2000);
+
+                       
+                        start.style.display = 'none'
+                    
+                    }else{
+                        tops.forEach(tp => {
+                            tp.style.display = 'block';                                
+                        });
+
+                        dahon.forEach(dh => {
+                            dh.style.display = 'block';
+                        });
+
+                        bot.forEach(bt => {
+                            bt.style.display = 'block';                            
+                        });  
+
+                        setTimeout(() => {
+                            loss.style.display = 'flex';
+                        }, 2000);
+
+                       start.style.display = 'none'
+                    
+                    }
+                })
+            })
+        });
+        again.forEach(i => {
+            i.addEventListener('click', function(){
+                document.location.reload();
+            });
+        });
+          
+    </script>
+</body>
+</html>
